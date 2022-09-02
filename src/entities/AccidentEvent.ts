@@ -1,19 +1,25 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, UpdateDateColumn } from "typeorm"
 import { uuid } from "uuidv4";
+import { Client } from "./Client";
+import { ThirdPerson } from "./ThirdPerson";
+import { Vehicle } from "./Vehicle";
 
 @Entity({ name: "accidents_event" })
 export class AccidentEvent {
     @PrimaryColumn()
     id: string;
 
-    @Column()
-    id_vehicle: string;
+    @ManyToOne(() => Vehicle, (vehicle) => vehicle.accidentEvents)
+    vehicle: Vehicle;
+
+    @ManyToOne(() => Client, (client) => client.accidentEvents)
+    client: Client;
 
     @Column()
-    id_client: string;
+    description_accident: string;
 
-    @Column()
-    year: string;
+    @OneToMany(() => ThirdPerson, (thirdPerson) => thirdPerson.accidentEvent)
+    thirdPerson: AccidentEvent[];
 
     @CreateDateColumn()
     created_at: Date;

@@ -1,6 +1,7 @@
 import { Client } from "../../../../entities/Client";
 import { IClientRepository } from "../../repositories/IClientRepository";
 import * as Boom from "@hapi/boom";
+import { ICreateClientRequestDTO } from "./CreateClientDTO";
 
 export interface IUpdateClientRequest {
     name: string;
@@ -8,11 +9,7 @@ export interface IUpdateClientRequest {
     email: string;
 }
 
-export interface ICreateClientRequest {
-    name: string;
-    cpf: string;
-    email: string;
-}
+
 
 export interface ICreateAccidentEventRequest {
     id_user: string;
@@ -24,7 +21,7 @@ export interface ICreateAccidentEventRequest {
 export class CreateClientService {
     constructor(private clientRepository: IClientRepository) { }
 
-    async execute(data: ICreateClientRequest): Promise<Client> {
+    async execute(data: ICreateClientRequestDTO): Promise<Client> {
         const clientArealdyExists = await this.clientRepository.findByCPF(data.cpf);
 
         if (clientArealdyExists) {

@@ -1,12 +1,18 @@
 import { AppDataSource } from "../../../../database/data-source";
 import { AccidentEvent } from "../../../../entities/AccidentEvent";
 import { Client } from "../../../../entities/Client";
-import { ICreateAccidentEventRequest, ICreateClientRequest, IUpdateClientRequest } from "../../useCases/CreateClient/CreateClientService";
+import { ICreateClientRequestDTO } from "../../useCases/CreateClient/CreateClientDTO";
+import { ICreateAccidentEventRequest, IUpdateClientRequest } from "../../useCases/CreateClient/CreateClientService";
 import { IClientRepository } from "../IClientRepository";
 
 const clientRepo = AppDataSource.getRepository(Client);
 
 class ClientTypeormRepository implements IClientRepository {
+    async findAll(): Promise<Client[]> {
+        const clients = await clientRepo.find();
+
+        return clients;
+    }
     async findById(id: string): Promise<Client> {
         const client = await clientRepo.findOneBy({
             id
@@ -37,7 +43,7 @@ class ClientTypeormRepository implements IClientRepository {
     createAccidentEvent(data: ICreateAccidentEventRequest): Promise<AccidentEvent> {
         throw new Error("Method not implemented.");
     }
-    save(data: ICreateClientRequest): Promise<Client> {
+    save(data: ICreateClientRequestDTO): Promise<Client> {
         const client = clientRepo.create(data);
 
         const clientCreated = clientRepo.save(client);

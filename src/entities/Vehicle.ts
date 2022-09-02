@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm"
 import { uuid } from "uuidv4";
+import { AccidentEvent } from "./AccidentEvent";
 
 @Entity({ name: "vehicles" })
 export class Vehicle {
@@ -9,11 +10,16 @@ export class Vehicle {
     @Column()
     vehicle: string;
 
-    @Column()
+    @Column({
+        unique: true
+    })
     license_plate: string;
 
     @Column()
-    year: string;
+    year: number;
+
+    @OneToMany(() => AccidentEvent, (accidentEvent) => accidentEvent.vehicle)
+    accidentEvents: AccidentEvent[];
 
     @CreateDateColumn()
     created_at: Date;
