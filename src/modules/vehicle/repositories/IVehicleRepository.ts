@@ -1,8 +1,8 @@
 import { Vehicle } from "../../../entities/Vehicle";
-import { CreateVehicleRequestDTO } from "../useCases/CreateVehicle/CreateVehicleDTO";
+import { ICreateVehicleRequestDTO } from "../useCases/CreateVehicle/CreateVehicleDTO";
 
 export interface IVehicleRepository {
-    save(data: CreateVehicleRequestDTO): Promise<Vehicle>;
+    save(data: ICreateVehicleRequestDTO): Promise<Vehicle>;
     findById(id: string): Promise<Vehicle>;
     findByLicensePlate(license_plate: string): Promise<Vehicle>;
 }

@@ -19,7 +19,7 @@ export class AccidentEvent {
     description_accident: string;
 
     @OneToMany(() => ThirdPerson, (thirdPerson) => thirdPerson.accidentEvent)
-    thirdPerson: AccidentEvent[];
+    thirdPerson: ThirdPerson[];
 
     @CreateDateColumn()
     created_at: Date;

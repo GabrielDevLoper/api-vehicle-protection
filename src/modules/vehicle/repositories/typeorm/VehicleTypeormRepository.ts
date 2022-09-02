@@ -1,12 +1,12 @@
 import { AppDataSource } from "../../../../database/data-source";
 import { Vehicle } from "../../../../entities/Vehicle";
-import { CreateVehicleRequestDTO } from "../../useCases/CreateVehicle/CreateVehicleDTO";
+import { ICreateVehicleRequestDTO } from "../../useCases/CreateVehicle/CreateVehicleDTO";
 import { IVehicleRepository } from "../IVehicleRepository";
 
 const vehicleRepo = AppDataSource.getRepository(Vehicle);
 
 export class VehicleTypeormRepository implements IVehicleRepository {
-    async save(data: CreateVehicleRequestDTO): Promise<Vehicle> {
+    async save(data: ICreateVehicleRequestDTO): Promise<Vehicle> {
         const vehicle = vehicleRepo.create(data);
 
         const vehicleCreated = await vehicleRepo.save(vehicle);

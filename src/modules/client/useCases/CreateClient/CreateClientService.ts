@@ -10,14 +10,6 @@ export interface IUpdateClientRequest {
 }
 
 
-
-export interface ICreateAccidentEventRequest {
-    id_user: string;
-    vehicle: string;
-    license_plate: string;
-    year: string;
-}
-
 export class CreateClientService {
     constructor(private clientRepository: IClientRepository) { }
 

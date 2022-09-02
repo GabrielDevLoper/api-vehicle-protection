@@ -6,6 +6,8 @@ import { createClientController } from "./modules/client/useCases/CreateClient";
 import * as Joi from "joi";
 import { updateClientController } from "./modules/client/useCases/UpdateClient";
 import { listClientController } from "./modules/client/useCases/ListClient";
+import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicle";
+import { createAccidentEventController } from "./modules/accidentEvent/useCases/CreateAccidentEvent";
 
 AppDataSource.initialize().then(async () => {
     console.log("Connection succesfuly db");
@@ -45,6 +47,27 @@ server.route({
         const client = await listClientController.handle(request, h);
 
         return h.response(client);
+    },
+});
+
+
+server.route({
+    method: "POST",
+    path: "/vehicles",
+    handler: async (request, h) => {
+        const vehicle = await createVehicleController.handle(request, h);
+
+        return h.response(vehicle).code(201);
+    },
+});
+
+server.route({
+    method: "POST",
+    path: "/accident-event",
+    handler: async (request, h) => {
+        const accidentEvent = await createAccidentEventController.handle(request, h);
+
+        return h.response(accidentEvent).code(201);
     },
 });
 
