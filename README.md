@@ -29,5 +29,6 @@ Techs que foram utilizadas para o desenvolvimento desta aplicação
 Implementar feature:
 
 1. Autentição dos clientes com JWT
+2. Todos os usuários(clientes e terceiros) precisam ter documentos associados as suas contas.
 
 

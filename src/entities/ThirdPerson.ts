@@ -13,6 +13,11 @@ export class ThirdPerson {
     @Column()
     phone: string;
 
+    @Column({
+        unique: true
+    })
+    cpf: string;
+
     @ManyToOne(() => AccidentEvent, (accidentEvent) => accidentEvent.thirdPerson)
     accidentEvent: AccidentEvent;
 
