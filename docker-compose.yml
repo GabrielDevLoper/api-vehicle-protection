@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  node-ts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-vehicle-protection
+    volumes:
+      - ./src:/app/src
+    networks:
+      - app
+    ports:
+      - 3333:3333
+    depends_on:
+      - postgres
+    command: npm run dev
+
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - app
+    environment:
+      - POSTGRES_USER=default
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=default
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+networks:
+  app:
+    driver: bridge
+
+volumes:
+  postgres:
+    name: postgres

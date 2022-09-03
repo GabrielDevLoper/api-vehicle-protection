@@ -1,7 +1,24 @@
-# Awesome Project Build with TypeORM
+# Aplicação Proteção Veicular.
 
-Steps to run this project:
+Passos para executer este projeto
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+1. Execute o comando `npm i ou yarn`
+2. Configure as credencias do banco e da aplicação na .env
+3. Execute o comando `npm run dev ou yarn dev`
+
+Passos para executar o projeto utilizando o docker com a imagem:
+
+1. Configure duas variaveis na .env
+2. DB_HOST=postgres
+3. HOST=0.0.0.0
+4. Execute o comando `docker-compose up -d`
+
+Techs que foram utilizadas para o desenvolvimento desta aplicação
+
+1. Typescript
+2. HapiJS
+3. TypeORM
+4. PostgresSQL
+5. Jest
+6. hapi/boom 
+
