@@ -30,5 +30,5 @@ Implementar feature:
 
 1. Autentição dos clientes com JWT
 2. Todos os usuários(clientes e terceiros) precisam ter documentos associados as suas contas.
-
+3. Validar os campos do request ao enviar uma requisição.
 
