@@ -3,7 +3,6 @@ import "dotenv/config";
 import "reflect-metadata"
 import { AppDataSource } from "./database/data-source"
 import { createClientController } from "./modules/client/useCases/CreateClient";
-import * as Joi from "joi";
 import { updateClientController } from "./modules/client/useCases/UpdateClient";
 import { listClientController } from "./modules/client/useCases/ListClient";
 import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicle";

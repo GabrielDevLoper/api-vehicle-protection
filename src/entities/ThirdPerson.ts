@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn, UpdateDateColumn } from "typeorm"
-import { uuid } from "uuidv4";
+import { v4 } from "uuid";
 import { AccidentEvent } from "./AccidentEvent";
 
 @Entity({ name: "third_persons" })
@@ -24,7 +24,7 @@ export class ThirdPerson {
 
     constructor() {
         if (!this.id) {
-            this.id = uuid()
+            this.id = v4()
         }
     }
 

@@ -1,4 +1,5 @@
 import * as Boom from "@hapi/boom";
+import { Vehicle } from "../../../../entities/Vehicle";
 import { IVehicleRepository } from "../../repositories/IVehicleRepository";
 import { ICreateVehicleRequestDTO } from "./CreateVehicleDTO";
 

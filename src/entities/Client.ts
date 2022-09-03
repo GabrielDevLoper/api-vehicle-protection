@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm"
-import { uuid } from "uuidv4";
+import { v4 } from "uuid";
 import { AccidentEvent } from "./AccidentEvent";
 
 @Entity({ name: "clients" })
@@ -19,7 +19,7 @@ export class Client {
     cpf: string;
 
     @OneToMany(() => AccidentEvent, (accidentEvent) => accidentEvent.client)
-    accidentEvents: AccidentEvent[];
+    accidentEvents?: AccidentEvent[];
 
     @CreateDateColumn()
     created_at: Date;
@@ -29,7 +29,7 @@ export class Client {
 
     constructor() {
         if (!this.id) {
-            this.id = uuid()
+            this.id = v4()
         }
     }
 

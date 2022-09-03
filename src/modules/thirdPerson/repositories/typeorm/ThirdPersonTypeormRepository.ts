@@ -11,7 +11,6 @@ export class ThirdPersonTypeormRepository implements IThirdPersonRepository {
 
         const thirdPersonCreated = await thirdPersonRepo.save(thirdPerson);
 
-        console.log(thirdPersonCreated);
         return thirdPersonCreated;
     }
 

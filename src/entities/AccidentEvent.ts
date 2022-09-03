@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryColumn, UpdateDateColumn } from "typeorm"
-import { uuid } from "uuidv4";
+import { v4 } from "uuid";
 import { Client } from "./Client";
 import { ThirdPerson } from "./ThirdPerson";
 import { Vehicle } from "./Vehicle";
@@ -29,7 +29,7 @@ export class AccidentEvent {
 
     constructor() {
         if (!this.id) {
-            this.id = uuid()
+            this.id = v4()
         }
     }
 

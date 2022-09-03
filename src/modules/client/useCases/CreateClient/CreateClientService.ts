@@ -13,11 +13,11 @@ export interface IUpdateClientRequest {
 export class CreateClientService {
     constructor(private clientRepository: IClientRepository) { }
 
-    async execute(data: ICreateClientRequestDTO): Promise<Client> {
+    async execute(data: ICreateClientRequestDTO) {
         const clientArealdyExists = await this.clientRepository.findByCPF(data.cpf);
 
         if (clientArealdyExists) {
-            throw Boom.badRequest("Client already exists.");
+            throw Boom.badRequest("Client already exists.", clientArealdyExists);
         }
 
         const client = await this.clientRepository.save(data);

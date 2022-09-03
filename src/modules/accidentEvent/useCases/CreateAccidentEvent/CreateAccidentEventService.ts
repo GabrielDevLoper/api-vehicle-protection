@@ -1,5 +1,4 @@
 import * as Boom from "@hapi/boom";
-import { ThirdPerson } from "../../../../entities/ThirdPerson";
 import { IClientRepository } from "../../../client/repositories/IClientRepository";
 import { IThirdPersonRepository } from "../../../thirdPerson/repositories/IThirdPersonRepository";
 import { IVehicleRepository } from "../../../vehicle/repositories/IVehicleRepository";
