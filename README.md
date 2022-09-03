@@ -2,9 +2,10 @@
 
 Passos para executer este projeto
 
-1. Execute o comando `npm i ou yarn`
+1. Execute os comando `npm i ou yarn`
 2. Configure as credencias do banco e da aplicação na .env
-3. Execute o comando `npm run dev ou yarn dev`
+3. Execute os comando `npm run dev ou yarn dev`
+4. Execute os comando `npm run test ou yarn test` para executar os testes.
 
 Passos para executar o projeto utilizando o docker com a imagem:
 
