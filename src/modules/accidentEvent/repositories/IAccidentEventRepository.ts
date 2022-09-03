@@ -3,4 +3,5 @@ import { ICreateAccidentEventRequestDTO } from "../useCases/CreateAccidentEvent/
 
 export interface IAccidentEventRepository {
     save(data: ICreateAccidentEventRequestDTO): Promise<AccidentEvent>
+    findAll(): Promise<AccidentEvent[]>;
 }

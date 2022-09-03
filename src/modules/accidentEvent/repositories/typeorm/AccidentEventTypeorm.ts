@@ -6,6 +6,17 @@ import { IAccidentEventRepository } from "../IAccidentEventRepository";
 const accidentEventRepo = AppDataSource.getRepository(AccidentEvent);
 
 export class AccidentEventTypeorm implements IAccidentEventRepository {
+    async findAll(): Promise<AccidentEvent[]> {
+        const accidentsEvent = await accidentEventRepo.find({
+            relations: {
+                vehicle: true,
+                client: true,
+                thirdPerson: true,
+            }
+        });
+
+        return accidentsEvent;
+    }
     async save(data: ICreateAccidentEventRequestDTO): Promise<AccidentEvent> {
         const accidentEvent = accidentEventRepo.create(data);
 

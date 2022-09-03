@@ -7,6 +7,7 @@ import { updateClientController } from "./modules/client/useCases/UpdateClient";
 import { listClientController } from "./modules/client/useCases/ListClient";
 import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicle";
 import { createAccidentEventController } from "./modules/accidentEvent/useCases/CreateAccidentEvent";
+import { listAccidentEventController } from "./modules/accidentEvent/useCases/ListAccidentEvent";
 
 AppDataSource.initialize().then(async () => {
     console.log("Connection succesfuly db");
@@ -72,6 +73,16 @@ server.route({
         const accidentEvent = await createAccidentEventController.handle(request, h);
 
         return h.response(accidentEvent).code(201);
+    },
+});
+
+server.route({
+    method: "GET",
+    path: "/accident-event",
+    handler: async (request, h) => {
+        const accidentsEvent = await listAccidentEventController.handle(request, h);
+
+        return h.response(accidentsEvent);
     },
 });
 
