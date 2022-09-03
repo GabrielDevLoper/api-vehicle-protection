@@ -4,16 +4,16 @@
 
 Passos para executar este projeto, siga os passos a seguir:
 
-1. Execute os comando `npm i ou yarn`
+1. Execute os comando `npm i ou yarn`, para baixar as dependências da aplicação.
 2. Configure as credencias do banco e da aplicação na .env
-3. Execute os comando `npm run dev ou yarn dev`
-4. Execute os comando `npm run test ou yarn test` para executar os testes.
+3. Execute os comando `npm run dev ou yarn dev`, para deixar a aplicação rodando.
+4. Execute os comando `npm run test ou yarn test`, para executar os testes.
 
 Passos para executar o projeto utilizando o docker, siga os passos a seguir:
 
 1. Configure a variavel na .env
 2. DB_HOST=postgres
-4. Execute o comando `docker-compose up -d`
+4. Execute o comando `docker-compose up -d`, para baixar as imagens e levantar os containers do banco e da api.
 5. Para acessar os endpoints da aplicação acessar a url: `http://localhost:3333`
 
 Techs que foram utilizadas para o desenvolvimento desta aplicação
@@ -24,4 +24,10 @@ Techs que foram utilizadas para o desenvolvimento desta aplicação
 4. PostgresSQL
 5. Jest
 6. hapi/boom 
+
+
+Implementar feature:
+
+1. Autentição dos clientes com JWT
+
 
