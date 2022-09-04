@@ -1,6 +1,6 @@
 # Sistema para uma empresa de proteção veicular.
 
-### Para testar as rotas com os endpoints prontos, irei deixar na raiz do projeto um arquivo para ser importado no insomnia.
+### Para testar as rotas com os endpoints prontos, irei deixar na raiz do projeto um arquivo para ser importado no insomnia(software que usei para testar as rotas).
 
 Passos para executar este projeto, siga os passos a seguir:
 
