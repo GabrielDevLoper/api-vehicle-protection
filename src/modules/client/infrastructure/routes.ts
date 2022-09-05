@@ -3,7 +3,7 @@ import * as Joi from "joi";
 import * as Hapi from "@hapi/hapi";
 import { updateClientController } from "../useCases/UpdateClient";
 import { listClientController } from "../useCases/ListClient";
-import { authenticationController } from "../../authentication/useCases";
+import { authenticationController } from "../../authentication/useCases/auth";
 
 
 export const clientRoutes = [

@@ -1,4 +1,4 @@
-import { ClientTypeormRepository } from "../../client/repositories/typeorm/ClientTypeormRepository";
+import { ClientTypeormRepository } from "../../../client/repositories/typeorm/ClientTypeormRepository";
 import { AuthenticationController } from "./AuthenticationController";
 import { AuthenticationService } from "./AuthenticationService";
 

@@ -1,4 +1,4 @@
-import { ClientTypeormRepository } from "../../client/repositories/typeorm/ClientTypeormRepository";
+import { ClientTypeormRepository } from "../../../client/repositories/typeorm/ClientTypeormRepository";
 import { IAuthenticationRequestDTO } from "./IAuthenticationRequestDTO";
 import * as bcrypt from "bcrypt";
 import * as jwt from "jsonwebtoken";

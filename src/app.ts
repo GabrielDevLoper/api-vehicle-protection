@@ -9,7 +9,7 @@ import { listClientController } from "./modules/client/useCases/ListClient";
 import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicle";
 import { createAccidentEventController } from "./modules/accidentEvent/useCases/CreateAccidentEvent";
 import { listAccidentEventController } from "./modules/accidentEvent/useCases/ListAccidentEvent";
-import { authenticationController } from "./modules/authentication/useCases";
+import { authenticationController } from "./modules/authentication/useCases/auth";
 
 export const server = Hapi.server({
     port: process.env.PORT,
