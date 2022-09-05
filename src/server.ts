@@ -1,28 +1,7 @@
 import * as hapiAuthJwt2 from "hapi-auth-jwt2";
-import * as HapiSwagger from "hapi-swagger";
-import * as Inert from "@hapi/inert";
-import * as Vision from "@hapi/vision";
-
 import { server } from "./app";
+import { plugins } from "./utils/swagger/swaggerConfig";
 
-const swaggerOptions: HapiSwagger.RegisterOptions = {
-    info: {
-        title: 'Test API Documentation',
-    },
-};
-
-const plugins = [
-    {
-        plugin: Inert
-    },
-    {
-        plugin: Vision
-    },
-    {
-        plugin: HapiSwagger,
-        options: swaggerOptions
-    }
-];
 
 const serverInit = async () => {
     await server.register(hapiAuthJwt2);
