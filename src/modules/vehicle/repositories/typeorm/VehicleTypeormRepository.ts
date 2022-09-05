@@ -6,6 +6,11 @@ import { IVehicleRepository } from "../IVehicleRepository";
 const vehicleRepo = AppDataSource.getRepository(Vehicle);
 
 export class VehicleTypeormRepository implements IVehicleRepository {
+    async findAll(): Promise<Vehicle[]> {
+        const vehicles = await vehicleRepo.find();
+
+        return vehicles;
+    }
     async save(data: ICreateVehicleRequestDTO): Promise<Vehicle> {
         const vehicle = vehicleRepo.create(data);
 

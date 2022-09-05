@@ -10,6 +10,7 @@ import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicl
 import { createAccidentEventController } from "./modules/accidentEvent/useCases/CreateAccidentEvent";
 import { listAccidentEventController } from "./modules/accidentEvent/useCases/ListAccidentEvent";
 import { authenticationController } from "./modules/authentication/useCases/auth";
+import { listVehicleController } from "./modules/vehicle/useCases/ListVehicles";
 
 export const server = Hapi.server({
     port: process.env.PORT,
@@ -101,7 +102,29 @@ server.route({
         return h.response(vehicle).code(201);
     },
     options: {
-        tags: ['api']
+        tags: ['api'],
+        validate: {
+            payload: Joi.object({
+                vehicle: Joi.string().required(),
+                license_plate: Joi.string().required(),
+                year: Joi.number().required().messages({
+                    'any.required': `"a" is a required field`
+                }),
+            })
+        },
+    }
+});
+
+server.route({
+    method: "GET",
+    path: "/vehicles",
+    handler: async (request, h) => {
+        const vehicle = await listVehicleController.handle();
+
+        return h.response(vehicle);
+    },
+    options: {
+        tags: ['api'],
     }
 });
 
