@@ -38,6 +38,7 @@ server.route({
             })
         },
         auth: false,
+        tags: ['api']
     }
 });
 
@@ -60,7 +61,8 @@ server.route({
                 password: Joi.string().required()
             })
         },
-        auth: false
+        auth: false,
+        tags: ['api']
     }
 });
 
@@ -72,6 +74,9 @@ server.route({
 
         return h.response(client);
     },
+    options: {
+        tags: ['api']
+    }
 });
 
 server.route({
@@ -82,6 +87,9 @@ server.route({
 
         return h.response(client);
     },
+    options: {
+        tags: ['api']
+    }
 });
 
 server.route({
@@ -92,6 +100,9 @@ server.route({
 
         return h.response(vehicle).code(201);
     },
+    options: {
+        tags: ['api']
+    }
 });
 
 server.route({
@@ -102,6 +113,9 @@ server.route({
 
         return h.response(accidentEvent).code(201);
     },
+    options: {
+        tags: ['api']
+    }
 });
 
 server.route({
@@ -112,4 +126,7 @@ server.route({
 
         return h.response(accidentsEvent);
     },
+    options: {
+        tags: ['api']
+    }
 });
