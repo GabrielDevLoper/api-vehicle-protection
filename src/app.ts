@@ -12,7 +12,7 @@ import { listAccidentEventController } from "./modules/accidentEvent/useCases/Li
 
 AppDataSource.initialize().then(async () => {
     console.log("Connection succesfuly db");
-}).catch(error => console.log(error))
+}).catch(error => console.log(error));
 
 export const server = Hapi.server({
     port: process.env.PORT,

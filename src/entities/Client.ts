@@ -18,6 +18,9 @@ export class Client {
     })
     cpf: string;
 
+    @Column()
+    password: string;
+
     @OneToMany(() => AccidentEvent, (accidentEvent) => accidentEvent.client)
     accidentEvents?: AccidentEvent[];
 
