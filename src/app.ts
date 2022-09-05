@@ -1,18 +1,14 @@
 import * as Hapi from "@hapi/hapi";
 import "dotenv/config";
 import "reflect-metadata";
+import "./database/index";
 import * as Joi from "joi";
-import { AppDataSource } from "./database/data-source"
 import { createClientController } from "./modules/client/useCases/CreateClient";
 import { updateClientController } from "./modules/client/useCases/UpdateClient";
 import { listClientController } from "./modules/client/useCases/ListClient";
 import { createVehicleController } from "./modules/vehicle/useCases/CreateVehicle";
 import { createAccidentEventController } from "./modules/accidentEvent/useCases/CreateAccidentEvent";
 import { listAccidentEventController } from "./modules/accidentEvent/useCases/ListAccidentEvent";
-
-AppDataSource.initialize().then(async () => {
-    console.log("Connection succesfuly db");
-}).catch(error => console.log(error));
 
 export const server = Hapi.server({
     port: process.env.PORT,
@@ -40,11 +36,11 @@ server.route({
                 email: Joi.string().email().required().messages({
                     'any.required': `"a" is a required field`
                 }),
+                password: Joi.string().required()
             })
         }
     }
 });
-
 
 server.route({
     method: "PUT",
@@ -65,7 +61,6 @@ server.route({
         return h.response(client);
     },
 });
-
 
 server.route({
     method: "POST",
@@ -96,7 +91,5 @@ server.route({
         return h.response(accidentsEvent);
     },
 });
-
-
 
 

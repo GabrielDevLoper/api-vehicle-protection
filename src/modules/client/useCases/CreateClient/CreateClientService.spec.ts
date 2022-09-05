@@ -15,7 +15,8 @@ describe("create client service", () => {
         const data = {
             name: "Gabriel Barreto",
             cpf: "516515115615",
-            email: "gabriel.limabarreto@hotmail.com"
+            email: "gabriel.limabarreto@hotmail.com",
+            password: "123"
         }
 
         const client = await createClientService.execute(data);
@@ -27,7 +28,8 @@ describe("create client service", () => {
         const user = {
             name: "Gabriel Barreto",
             cpf: "1231s123",
-            email: "gabriel.limabarreto@hotmail.com"
+            email: "gabriel.limabarreto@hotmail.com",
+            password: "123"
         }
 
         await createClientService.execute(user);

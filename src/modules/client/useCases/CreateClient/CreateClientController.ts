@@ -6,13 +6,14 @@ export class CreateClientController {
     constructor(private createClientService: CreateClientService) { }
 
     async handle(request: Hapi.Request, h: Hapi.ResponseToolkit) {
-        const { name, cpf, email } = request.payload as ICreateClientRequestDTO;
+        const { name, cpf, email, password } = request.payload as ICreateClientRequestDTO;
 
         const data = {
             name,
             cpf,
-            email
-        }
+            email,
+            password
+        };
 
         const client = await this.createClientService.execute(data);
 

@@ -1,6 +1,7 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm"
+import { BeforeInsert, Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, UpdateDateColumn } from "typeorm"
 import { v4 } from "uuid";
 import { AccidentEvent } from "./AccidentEvent";
+import * as bcrypt from "bcrypt";
 
 @Entity({ name: "clients" })
 export class Client {
@@ -18,7 +19,9 @@ export class Client {
     })
     cpf: string;
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     password: string;
 
     @OneToMany(() => AccidentEvent, (accidentEvent) => accidentEvent.client)
@@ -29,6 +32,11 @@ export class Client {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    @BeforeInsert()
+    async hashPassword() {
+        this.password = bcrypt.hashSync(this.password, 8);
+    }
 
     constructor() {
         if (!this.id) {
