@@ -1,14 +1,7 @@
-import { Client } from "../../../../entities/Client";
 import { IClientRepository } from "../../repositories/IClientRepository";
-import * as Boom from "@hapi/boom";
 import { ICreateClientRequestDTO } from "./CreateClientDTO";
-
-export interface IUpdateClientRequest {
-    name: string;
-    cpf: string;
-    email: string;
-}
-
+import * as Boom from "@hapi/boom";
+import * as bcrypt from "bcrypt";
 
 export class CreateClientService {
     constructor(private clientRepository: IClientRepository) { }
@@ -20,7 +13,14 @@ export class CreateClientService {
             throw Boom.badRequest("Client already exists.", clientArealdyExists);
         }
 
-        const client = await this.clientRepository.save(data);
+        const clientSave = {
+            name: data.name,
+            cpf: data.cpf,
+            email: data.email,
+            password: bcrypt.hashSync(data.password, 8),
+        }
+
+        const client = await this.clientRepository.save(clientSave);
 
         return client;
     }

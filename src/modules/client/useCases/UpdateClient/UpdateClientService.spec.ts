@@ -19,7 +19,8 @@ describe("update client service", () => {
         const data = {
             name: "Gabriel Barreto",
             cpf: "516515115615",
-            email: "gabriel.limabarreto@hotmail.com"
+            email: "gabriel.limabarreto@hotmail.com",
+            password: "123"
         }
 
         const client = await createClientService.execute(data) as Client;
@@ -27,7 +28,8 @@ describe("update client service", () => {
         const data2 = {
             name: "teste insert",
             cpf: "123123",
-            email: "gabriel.limabarreto@hotmail.com"
+            email: "gabriel.limabarreto@hotmail.com",
+            password: "123"
         }
 
         const clientUpdated = await updateClientService.execute(data2, client.id);
@@ -40,7 +42,8 @@ describe("update client service", () => {
         const data = {
             name: "teste insert",
             cpf: "123123",
-            email: "gabriel.limabarreto@hotmail.com"
+            email: "gabriel.limabarreto@hotmail.com",
+            password: "123"
         }
 
         await expect(updateClientService.execute(data, "8561515")).rejects.toThrowError(Boom.notFound("Client not found."));

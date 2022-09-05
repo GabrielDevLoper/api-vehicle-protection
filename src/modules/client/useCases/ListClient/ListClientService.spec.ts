@@ -18,13 +18,15 @@ describe("list client service", () => {
         const client1 = {
             name: "testando 123",
             cpf: "15615610",
-            email: "asd1@gmail.com"
+            email: "asd1@gmail.com",
+            password: "123"
         }
 
         const client2 = {
             name: "testando 123 123",
             cpf: "1561561021123",
-            email: "asdsd1@gmail.com"
+            email: "asdsd1@gmail.com",
+            password: "123"
         }
 
         await createClientService.execute(client1);

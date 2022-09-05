@@ -1,11 +1,12 @@
 import * as Boom from "@hapi/boom";
 import { IClientRepository } from "../../repositories/IClientRepository";
-import { IUpdateClientRequest } from "../CreateClient/CreateClientService";
+import { IUpdateClientRequestDTO } from "./UpdateClientDTO";
+
 
 export class UpdateClientService {
     constructor(private clientRepository: IClientRepository) { }
 
-    async execute(data: IUpdateClientRequest, id: string) {
+    async execute(data: IUpdateClientRequestDTO, id: string) {
         const clientArealdyExists = await this.clientRepository.findById(id);
 
         if (!clientArealdyExists) {
