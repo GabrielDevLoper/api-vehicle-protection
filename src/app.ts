@@ -1,6 +1,7 @@
 import * as Hapi from "@hapi/hapi";
 import "dotenv/config";
-import "reflect-metadata"
+import "reflect-metadata";
+import * as Joi from "joi";
 import { AppDataSource } from "./database/data-source"
 import { createClientController } from "./modules/client/useCases/CreateClient";
 import { updateClientController } from "./modules/client/useCases/UpdateClient";
@@ -12,7 +13,6 @@ import { listAccidentEventController } from "./modules/accidentEvent/useCases/Li
 AppDataSource.initialize().then(async () => {
     console.log("Connection succesfuly db");
 }).catch(error => console.log(error))
-
 
 export const server = Hapi.server({
     port: process.env.PORT,
@@ -26,18 +26,29 @@ export const server = Hapi.server({
 
 server.route({
     method: "POST",
-    path: "/users",
+    path: "/clients",
     handler: async (request, h) => {
         const client = await createClientController.handle(request, h);
 
         return h.response(client).code(201);
     },
+    options: {
+        validate: {
+            payload: Joi.object({
+                name: Joi.string().required(),
+                cpf: Joi.string().required(),
+                email: Joi.string().email().required().messages({
+                    'any.required': `"a" is a required field`
+                }),
+            })
+        }
+    }
 });
 
 
 server.route({
     method: "PUT",
-    path: "/users/{id}",
+    path: "/clients/{id}",
     handler: async (request, h) => {
         const client = await updateClientController.handle(request, h);
 
@@ -47,7 +58,7 @@ server.route({
 
 server.route({
     method: "GET",
-    path: "/users",
+    path: "/clients",
     handler: async (request, h) => {
         const client = await listClientController.handle(request, h);
 
