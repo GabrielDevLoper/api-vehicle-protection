@@ -26,13 +26,38 @@ export class CreateAccidentEventService {
             throw Boom.badRequest("Vehicle not found.");
         }
 
-        const thirdPerson = await this.thirdPersonRepository.saveMany(data.thirdPerson);
+        const thirdPersonExistsNotSave = await this.thirdPersonRepository.findMany(data.thirdPerson);
+
+        const thirdPersonsFormated = thirdPersonExistsNotSave.map(third => {
+            return {
+                name: third.name,
+                phone: third.phone,
+                cpf: third.cpf,
+            }
+        });
+
+        const thirdPersonRequestFormated = data.thirdPerson.map(t => {
+            return {
+                name: t.name,
+                phone: t.phone,
+                cpf: t.cpf,
+            }
+        });
+
+        const newThirdsPersons = thirdPersonRequestFormated.filter(({ cpf: id1 }) => !thirdPersonsFormated.some(({ cpf: id2 }) => id2 === id1));
+
+        const thirdPersonSave = await this.thirdPersonRepository.saveMany(newThirdsPersons);
+
+        const thirdPersons = [
+            ...thirdPersonSave,
+            ...thirdPersonExistsNotSave
+        ];
 
         const accidentEvent = await this.accidentEventRepository.save({
             client,
             vehicle,
             description_accident: data.description_accident,
-            thirdPerson
+            thirdPerson: thirdPersons
         });
 
         return accidentEvent;
