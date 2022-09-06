@@ -2,7 +2,6 @@ import { AppDataSource } from "../../../../database/data-source";
 import { Client } from "../../../../entities/Client";
 import { ICreateClientRequestDTO } from "../../useCases/CreateClient/CreateClientDTO";
 import { IUpdateClientRequestDTO } from "../../useCases/UpdateClient/UpdateClientDTO";
-
 import { IClientRepository } from "../IClientRepository";
 
 const clientRepo = AppDataSource.getRepository(Client);
