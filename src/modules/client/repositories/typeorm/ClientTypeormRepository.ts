@@ -1,14 +1,19 @@
 import { AppDataSource } from "../../../../database/data-source";
 import { Client } from "../../../../entities/Client";
 import { ICreateClientRequestDTO } from "../../useCases/CreateClient/CreateClientDTO";
-import { IUpdateClientRequest } from "../../useCases/CreateClient/CreateClientService";
+import { IUpdateClientRequestDTO } from "../../useCases/UpdateClient/UpdateClientDTO";
+
 import { IClientRepository } from "../IClientRepository";
 
 const clientRepo = AppDataSource.getRepository(Client);
 
 class ClientTypeormRepository implements IClientRepository {
     async findAll(): Promise<Client[]> {
-        const clients = await clientRepo.find();
+        const clients = await clientRepo.find({
+            relations: {
+                accidentEvents: true
+            }
+        });
 
         return clients;
     }
@@ -26,7 +31,7 @@ class ClientTypeormRepository implements IClientRepository {
 
         return client;
     }
-    async update(data: IUpdateClientRequest, id: string): Promise<Client> {
+    async update(data: IUpdateClientRequestDTO, id: string): Promise<Client> {
         const client = await clientRepo.findOneBy({
             id
         });
