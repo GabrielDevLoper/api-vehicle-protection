@@ -18,8 +18,9 @@ export class ThirdPersonInMemoryRepository implements IThirdPersonRepository {
             this.thirdsPersons.push(data);
         });
 
+        const thirdsSaved = this.thirdsPersons.map(third => third);
 
-        return;
+        return thirdsSaved;
     }
 
 

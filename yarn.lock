@@ -334,11 +334,6 @@
   dependencies:
     "@cspotcode/source-map-consumer" "0.8.0"
 
-"@faker-js/faker@^7.5.0":
-  version "7.5.0"
-  resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.5.0.tgz#8e8265f65f5b68d2a57886d59b03788eeb676264"
-  integrity sha512-8wNUCCUHvfvI0gQpDUho/3gPzABffnCn5um65F8dzQ86zz6dlt4+nmAA7PQUc8L+eH+9RgR/qzy5N/8kN0Ozdw==
-
 "@hapi/accept@^5.0.1":
   version "5.0.2"
   resolved "https://registry.npmjs.org/@hapi/accept/-/accept-5.0.2.tgz"
@@ -374,14 +369,6 @@
   integrity sha512-ngu0tSEmrezoiIaNGG6rRvKOUkUuDdf4XTPnONHGYfSGRmDqPZX5oJL6HAdKTo1UQHECbdB4OzhWrfgVppjHUw==
   dependencies:
     "@hapi/hoek" "9.x.x"
-
-"@hapi/basic@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@hapi/basic/-/basic-7.0.0.tgz#5aa5ed7e702b05bc7068206240c1a84ca9266ea5"
-  integrity sha512-5DkM9a0c4PVLUPeM/d1OyMoVGo6Qix76gQJj3kfSOZH95yJDtY+yWKzvqTD27HXys5elrNMg3+v/z784Te1Uaw==
-  dependencies:
-    "@hapi/boom" "^10.0.0"
-    "@hapi/hoek" "^10.0.0"
 
 "@hapi/boom@9.x.x", "@hapi/boom@^9.0.0", "@hapi/boom@^9.1.0", "@hapi/boom@^9.1.4":
   version "9.1.4"

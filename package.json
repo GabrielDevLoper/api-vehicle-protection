@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --inspect --transpile-only --exit-child --ignore-watch node_modules --watch src src/server.ts",
     "typeorm": "typeorm-ts-node-commonjs",
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "start": "node build/src/server.js"
   },
   "dependencies": {
-    "@hapi/basic": "^7.0.0",
     "@hapi/boom": "^10.0.0",
     "@hapi/hapi": "20.2.2",
     "@hapi/inert": "^7.0.0",
@@ -26,7 +27,6 @@
     "uuidv4": "^6.2.13"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.5.0",
     "@types/bcrypt": "^5.0.0",
     "@types/hapi__hapi": "^20.0.12",
     "@types/hapi__inert": "^5.2.3",

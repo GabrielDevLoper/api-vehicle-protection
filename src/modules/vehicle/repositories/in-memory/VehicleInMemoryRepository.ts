@@ -31,7 +31,9 @@ export class VehicleInMemoryRepository implements IVehicleRepository {
     }
 
     async findAll(): Promise<Vehicle[]> {
-        throw new Error("Method not implemented.");
+        const vehicles = this.vehicles.map(vehicle => vehicle);
+
+        return vehicles;
     }
 
 }

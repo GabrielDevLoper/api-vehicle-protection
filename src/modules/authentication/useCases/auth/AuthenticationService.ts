@@ -11,7 +11,7 @@ export class AuthenticationService {
         const client = await this.clientRepository.findByCPF(cpf);
 
         if (!client) {
-            throw Boom.notFound("Credentials invalid.");
+            throw Boom.badRequest("Credentials invalid.");
         }
 
         const token = jwt.sign({ clientID: client.id }, process.env.SECRET_KEY, { algorithm: 'HS256' });

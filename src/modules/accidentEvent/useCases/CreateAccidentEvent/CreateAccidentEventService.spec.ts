@@ -1,7 +1,7 @@
-import { ThirdPerson } from "../../../../entities/ThirdPerson";
 import { ClientInMemoryRepository } from "../../../client/repositories/in-memory/ClientInMemoryRepository";
 import { CreateClientService } from "../../../client/useCases/CreateClient/CreateClientService";
 import { ThirdPersonInMemoryRepository } from "../../../thirdPerson/repositories/in-memory/ThirdPersonInMemoryRepository";
+import { CreateThirdPersonService } from "../../../thirdPerson/useCases/CreateThirdPerson/CreateThirdPersonService";
 import { VehicleInMemoryRepository } from "../../../vehicle/repositories/in-memory/VehicleInMemoryRepository";
 import { CreateVehicleService } from "../../../vehicle/useCases/CreateVehicle/CreateVehicleService";
 import { AccidentEventInMemoryRepository } from "../../repositories/in-memory/AccidentEventInMemoryRepository";
@@ -11,9 +11,12 @@ let accidentEventInMemoryRepository: AccidentEventInMemoryRepository;
 let clientInMemoryRepository: ClientInMemoryRepository;
 let vehicleInMemoryRepository: VehicleInMemoryRepository;
 let thirdPersonInMemoryRepository: ThirdPersonInMemoryRepository;
+
+
 let createAccidentEventService: CreateAccidentEventService;
 let createClientService: CreateClientService;
 let createVehicleService: CreateVehicleService;
+let createThirdPersonService: CreateThirdPersonService;
 
 
 
@@ -27,6 +30,7 @@ describe("create accident event service", () => {
         thirdPersonInMemoryRepository = new ThirdPersonInMemoryRepository();
 
 
+        createThirdPersonService = new CreateThirdPersonService(thirdPersonInMemoryRepository);
         createClientService = new CreateClientService(clientInMemoryRepository);
         createVehicleService = new CreateVehicleService(vehicleInMemoryRepository);
         createAccidentEventService = new CreateAccidentEventService(
@@ -52,7 +56,7 @@ describe("create accident event service", () => {
             year: 2022
         });
 
-        const thirdPerson = [
+        const thirdPersonData = [
             {
                 id: "455",
                 name: "tulio",
@@ -69,15 +73,17 @@ describe("create accident event service", () => {
                 created_at: new Date(),
                 updated_at: new Date(),
             },
-        ]
+        ];
+
+        const thirdPersonsSaved = await createThirdPersonService.execute(thirdPersonData);
 
         const accidentEvent = await createAccidentEventService.execute({
             client,
             vehicle,
             description_accident: "Batida",
-            thirdPerson
+            thirdPerson: thirdPersonsSaved
         });
 
-        console.log(accidentEvent);
+        expect(accidentEvent).toHaveProperty("id");
     });
 });

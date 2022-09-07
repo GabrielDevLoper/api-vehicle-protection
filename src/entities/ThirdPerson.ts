@@ -19,7 +19,7 @@ export class ThirdPerson {
     cpf: string;
 
     @ManyToOne(() => AccidentEvent, (accidentEvent) => accidentEvent.thirdPerson)
-    accidentEvent: AccidentEvent;
+    accidentEvent?: AccidentEvent;
 
     @CreateDateColumn()
     created_at: Date;

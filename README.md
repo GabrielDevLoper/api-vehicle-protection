@@ -31,6 +31,6 @@ Implementar feature:
     1. inserir nova coluna de password na tabela de clientes. ✅
 2. Todos os usuários(clientes e terceiros) precisam ter documentos associados as suas contas.
 3. Validar os campos do request ao enviar uma requisição (UTILIZAR JOI) ✅.
-4. Verificar a criação de um evento de acidente.
+4. Verificar a criação de um evento de acidente. ✅
 5. Implementado swagger para documentação da api. ✅
 

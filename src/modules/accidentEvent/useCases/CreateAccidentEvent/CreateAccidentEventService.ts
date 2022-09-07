@@ -30,8 +30,6 @@ export class CreateAccidentEventService {
 
         const getThirdPersonExists = await this.thirdPersonRepository.findManyExists(data.thirdPerson);
 
-        console.log(getThirdPersonExists.length === 0);
-
         if (getThirdPersonExists.length > 0) {
             const thirdPersonsFormated = getThirdPersonExists.map(third => {
                 return {
@@ -58,11 +56,8 @@ export class CreateAccidentEventService {
                 ...getThirdPersonExists
             ];
         } else {
-            thirdPersons = data.thirdPerson
-
+            thirdPersons = await this.thirdPersonRepository.saveMany(data.thirdPerson);
         }
-
-
 
         const accidentEvent = await this.accidentEventRepository.save({
             client,
