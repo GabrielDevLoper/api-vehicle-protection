@@ -30,4 +30,8 @@ export class VehicleInMemoryRepository implements IVehicleRepository {
         return vehicle;
     }
 
+    async findAll(): Promise<Vehicle[]> {
+        throw new Error("Method not implemented.");
+    }
+
 }

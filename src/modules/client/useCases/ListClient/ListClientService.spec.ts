@@ -17,14 +17,14 @@ describe("list client service", () => {
     it("Should be able list all clients", async () => {
         const client1 = {
             name: "testando 123",
-            cpf: "15615610",
+            cpf: "92109614048",
             email: "asd1@gmail.com",
             password: "123"
         }
 
         const client2 = {
             name: "testando 123 123",
-            cpf: "1561561021123",
+            cpf: "08104356089",
             email: "asdsd1@gmail.com",
             password: "123"
         }

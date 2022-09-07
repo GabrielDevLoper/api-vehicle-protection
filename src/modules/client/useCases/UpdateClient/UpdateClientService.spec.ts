@@ -18,7 +18,7 @@ describe("update client service", () => {
     it("Should be able to update a client", async () => {
         const data = {
             name: "Gabriel Barreto",
-            cpf: "516515115615",
+            cpf: "75846187072",
             email: "gabriel.limabarreto@hotmail.com",
             password: "123"
         }
@@ -27,7 +27,7 @@ describe("update client service", () => {
 
         const data2 = {
             name: "teste insert",
-            cpf: "123123",
+            cpf: "75846187072",
             email: "gabriel.limabarreto@hotmail.com",
             password: "123"
         }
@@ -41,7 +41,7 @@ describe("update client service", () => {
     it("Should be not able to update a client not exist", async () => {
         const data = {
             name: "teste insert",
-            cpf: "123123",
+            cpf: "42939399034",
             email: "gabriel.limabarreto@hotmail.com",
             password: "123"
         }

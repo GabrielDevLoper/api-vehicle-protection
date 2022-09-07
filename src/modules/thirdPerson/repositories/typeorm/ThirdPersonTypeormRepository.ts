@@ -7,7 +7,7 @@ import { IThirdPersonRepository } from "../IThirdPersonRepository";
 const thirdPersonRepo = AppDataSource.getRepository(ThirdPerson);
 
 export class ThirdPersonTypeormRepository implements IThirdPersonRepository {
-    async findMany(data: ICreateThirdPersonRequestDTO[]): Promise<ThirdPerson[]> {
+    async findManyExists(data: ICreateThirdPersonRequestDTO[]): Promise<ThirdPerson[]> {
         const thirdCPF = data.map(thirdPerson => {
             return thirdPerson.cpf;
         });

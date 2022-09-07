@@ -1,1 +1,330 @@
-{"_type":"export","__export_format":4,"__export_date":"2022-09-06T03:02:57.413Z","__export_source":"insomnia.desktop.app:v2022.5.1","resources":[{"_id":"req_e306113e570f437ba274c402f0f6bbf3","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662431665160,"created":1662399290122,"url":"localhost:3333/authenticate","name":"Authenticate","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"cpf\": \"12128972426\",\n\t\"password\": \"123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_ca2b0df7eb504839926b6f536448e22e"}],"authentication":{},"metaSortKey":-1662399290122,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","parentId":null,"modified":1662138632347,"created":1662138632347,"name":"TESTE-U4CRYPTO","description":"","scope":"collection","_type":"workspace"},{"_id":"req_0df242baf3c943fc96492bf0e05a2272","parentId":"fld_0ef06f2a955a4eb7953d62a628f007cd","modified":1662432459751,"created":1662152233148,"url":"localhost:3333/accident-event","name":"Create Accident Event","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"client\": {\n\t\t\"cpf\": \"0648465161\" \n\t},\n\t\"vehicle\": {\n\t\t\"license_plate\": \"5487as\"\n\t},\n\t\"description_accident\": \"atropelamento\",\n\t\"thirdPerson\": [\n\t\t{\n\t\t\t\"name\": \"teste\",\n\t\t\t\"phone\": \"11515\",\n\t\t\t\"cpf\": \"2\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste2\",\n\t\t\t\"phone\": \"123\",\n\t\t\t\"cpf\": \"3\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste3\",\n\t\t\t\"phone\": \"56151\",\n\t\t\t\"cpf\": \"98\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste4\",\n\t\t\t\"phone\": \"21312544534\",\n\t\t\t\"cpf\": \"9\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"gabriel\",\n\t\t\t\"phone\": \"21312544534\",\n\t\t\t\"cpf\": \"8741\"\n\t\t}\n\t]\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_7da03b9b66404bb2a27f7e8b80582186"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"},"metaSortKey":-1662178674880,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_0ef06f2a955a4eb7953d62a628f007cd","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662178914793,"created":1662178914793,"name":"AccidentsEvent","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1662178914793,"_type":"request_group"},{"_id":"req_724775fad8114fb880fd0e47745a9495","parentId":"fld_0ef06f2a955a4eb7953d62a628f007cd","modified":1662178917408,"created":1662178674830,"url":"localhost:3333/accident-event","name":"List Accidents Event","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{},"metaSortKey":-1662178674830,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_e8f122c509ba45e0bd3052eaf671db6a","parentId":"fld_caf0d3cd2be14c878c33367af7fdc201","modified":1662407391154,"created":1662407366248,"url":"localhost:3333/vehicles","name":"List Vehicles","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"},"metaSortKey":-1662407366248,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_caf0d3cd2be14c878c33367af7fdc201","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662151409813,"created":1662151409813,"name":"Vehicles","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1662151409813,"_type":"request_group"},{"_id":"req_93e0308ac6df461faf74610b40339693","parentId":"fld_caf0d3cd2be14c878c33367af7fdc201","modified":1662406458797,"created":1662146053442,"url":"localhost:3333/vehicles","name":"Create Vehicle","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"vehicle\": \"CORSA\",\n\t\"license_plate\": \"971\",\n\t\"year\": 2022\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_a0e8876acfd740d98794acbe7fd7386d"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"},"metaSortKey":-1659647315747,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_b8ebbacd2cda4b6ca88dfd551800baef","parentId":"fld_b671546047484101810b1bbf48d1272b","modified":1662408400638,"created":1662138636233,"url":"localhost:3333/clients","name":"Create Client","description":"","method":"POST","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"Ewellin da paz\",\n\t\"email\": \"ewelin.devloper@gmail.com\",\n\t\"cpf\": \"12128972426\",\n\t\"password\": \"123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_a0e8876acfd740d98794acbe7fd7386d"}],"authentication":{},"metaSortKey":-1662142997110,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"fld_b671546047484101810b1bbf48d1272b","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662151398156,"created":1662151398156,"name":"Clients","description":"","environment":{},"environmentPropertyOrder":null,"metaSortKey":-1662151398156,"_type":"request_group"},{"_id":"req_c3f90c035e264d1481165ffd5f2b908c","parentId":"fld_b671546047484101810b1bbf48d1272b","modified":1662401852520,"created":1662142429650,"url":"localhost:3333/clients/dda938b2-1799-4b48-b23e-b6ac1fc3730a","name":"Update Client","description":"","method":"PUT","body":{"mimeType":"application/json","text":"{\n\t\"name\": \"Gabriel 123123sdasdasd asdas\",\n\t\"email\": \"gabriel.devloper@gmail.com\",\n\t\"cpf\": \"23123123\"\n}"},"parameters":[],"headers":[{"name":"Content-Type","value":"application/json","id":"pair_9c020e5ef4964260aad4f4798451bcdb"}],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"},"metaSortKey":-1662142997060,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"req_86935b58289d44d6973bb25f9027a83d","parentId":"fld_b671546047484101810b1bbf48d1272b","modified":1662401834511,"created":1662142997010,"url":"localhost:3333/clients","name":"List Clients","description":"","method":"GET","body":{},"parameters":[],"headers":[],"authentication":{"type":"bearer","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"},"metaSortKey":-1662142997010,"isPrivate":false,"settingStoreCookies":true,"settingSendCookies":true,"settingDisableRenderRequestBody":false,"settingEncodeUrl":true,"settingRebuildPath":true,"settingFollowRedirects":"global","_type":"request"},{"_id":"env_eef146fcb8a0737f65925e5fc69cbe840826c825","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662138632353,"created":1662138632353,"name":"Base Environment","data":{},"dataPropertyOrder":null,"color":null,"isPrivate":false,"metaSortKey":1662138632353,"_type":"environment"},{"_id":"jar_eef146fcb8a0737f65925e5fc69cbe840826c825","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662138632354,"created":1662138632354,"name":"Default Jar","cookies":[],"_type":"cookie_jar"},{"_id":"spc_239c2a22e5bb42b2b385dc7f6de45dea","parentId":"wrk_0dc67f188b114348b93bf63ba8cb4f0b","modified":1662138632349,"created":1662138632349,"fileName":"TESTE-U4CRYPTO","contents":"","contentType":"yaml","_type":"api_spec"}]}
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2022-09-06T03:02:57.413Z",
+    "__export_source": "insomnia.desktop.app:v2022.5.1",
+    "resources": [
+        {
+            "_id": "req_e306113e570f437ba274c402f0f6bbf3",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662431665160,
+            "created": 1662399290122,
+            "url": "localhost:3333/authenticate",
+            "name": "Authenticate",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"cpf\": \"12128972426\",\n\t\"password\": \"123\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_ca2b0df7eb504839926b6f536448e22e"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1662399290122,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "parentId": null,
+            "modified": 1662138632347,
+            "created": 1662138632347,
+            "name": "TESTE-U4CRYPTO",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_0df242baf3c943fc96492bf0e05a2272",
+            "parentId": "fld_0ef06f2a955a4eb7953d62a628f007cd",
+            "modified": 1662432459751,
+            "created": 1662152233148,
+            "url": "localhost:3333/accident-event",
+            "name": "Create Accident Event",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"client\": {\n\t\t\"cpf\": \"0648465161\" \n\t},\n\t\"vehicle\": {\n\t\t\"license_plate\": \"5487as\"\n\t},\n\t\"description_accident\": \"atropelamento\",\n\t\"thirdPerson\": [\n\t\t{\n\t\t\t\"name\": \"teste\",\n\t\t\t\"phone\": \"11515\",\n\t\t\t\"cpf\": \"2\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste2\",\n\t\t\t\"phone\": \"123\",\n\t\t\t\"cpf\": \"3\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste3\",\n\t\t\t\"phone\": \"56151\",\n\t\t\t\"cpf\": \"98\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"teste4\",\n\t\t\t\"phone\": \"21312544534\",\n\t\t\t\"cpf\": \"9\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"gabriel\",\n\t\t\t\"phone\": \"21312544534\",\n\t\t\t\"cpf\": \"8741\"\n\t\t}\n\t]\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_7da03b9b66404bb2a27f7e8b80582186"
+                }
+            ],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"
+            },
+            "metaSortKey": -1662178674880,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_0ef06f2a955a4eb7953d62a628f007cd",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662178914793,
+            "created": 1662178914793,
+            "name": "AccidentsEvent",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1662178914793,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_724775fad8114fb880fd0e47745a9495",
+            "parentId": "fld_0ef06f2a955a4eb7953d62a628f007cd",
+            "modified": 1662178917408,
+            "created": 1662178674830,
+            "url": "localhost:3333/accident-event",
+            "name": "List Accidents Event",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1662178674830,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e8f122c509ba45e0bd3052eaf671db6a",
+            "parentId": "fld_caf0d3cd2be14c878c33367af7fdc201",
+            "modified": 1662407391154,
+            "created": 1662407366248,
+            "url": "localhost:3333/vehicles",
+            "name": "List Vehicles",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"
+            },
+            "metaSortKey": -1662407366248,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_caf0d3cd2be14c878c33367af7fdc201",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662151409813,
+            "created": 1662151409813,
+            "name": "Vehicles",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1662151409813,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_93e0308ac6df461faf74610b40339693",
+            "parentId": "fld_caf0d3cd2be14c878c33367af7fdc201",
+            "modified": 1662406458797,
+            "created": 1662146053442,
+            "url": "localhost:3333/vehicles",
+            "name": "Create Vehicle",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"vehicle\": \"CORSA\",\n\t\"license_plate\": \"971\",\n\t\"year\": 2022\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_a0e8876acfd740d98794acbe7fd7386d"
+                }
+            ],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"
+            },
+            "metaSortKey": -1659647315747,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_b8ebbacd2cda4b6ca88dfd551800baef",
+            "parentId": "fld_b671546047484101810b1bbf48d1272b",
+            "modified": 1662408400638,
+            "created": 1662138636233,
+            "url": "localhost:3333/clients",
+            "name": "Create Client",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"Ewellin da paz\",\n\t\"email\": \"ewelin.devloper@gmail.com\",\n\t\"cpf\": \"12128972426\",\n\t\"password\": \"123\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_a0e8876acfd740d98794acbe7fd7386d"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1662142997110,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_b671546047484101810b1bbf48d1272b",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662151398156,
+            "created": 1662151398156,
+            "name": "Clients",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1662151398156,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_c3f90c035e264d1481165ffd5f2b908c",
+            "parentId": "fld_b671546047484101810b1bbf48d1272b",
+            "modified": 1662401852520,
+            "created": 1662142429650,
+            "url": "localhost:3333/clients/dda938b2-1799-4b48-b23e-b6ac1fc3730a",
+            "name": "Update Client",
+            "description": "",
+            "method": "PUT",
+            "body": {
+                "mimeType": "application/json",
+                "text": "{\n\t\"name\": \"Gabriel 123123sdasdasd asdas\",\n\t\"email\": \"gabriel.devloper@gmail.com\",\n\t\"cpf\": \"23123123\"\n}"
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json",
+                    "id": "pair_9c020e5ef4964260aad4f4798451bcdb"
+                }
+            ],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"
+            },
+            "metaSortKey": -1662142997060,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_86935b58289d44d6973bb25f9027a83d",
+            "parentId": "fld_b671546047484101810b1bbf48d1272b",
+            "modified": 1662401834511,
+            "created": 1662142997010,
+            "url": "localhost:3333/clients",
+            "name": "List Clients",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {
+                "type": "bearer",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRJRCI6ImNhNGI1NWUzLTYxYTYtNDg1MC1iZDFkLWYxNDEzYWYyYzE0YiIsImlhdCI6MTY2MjQwMTgyNn0.C9OPV6ZMB5VIKi2jLBS-FQpndK4zRCZI-KISCtxC8RU"
+            },
+            "metaSortKey": -1662142997010,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_eef146fcb8a0737f65925e5fc69cbe840826c825",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662138632353,
+            "created": 1662138632353,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1662138632353,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_eef146fcb8a0737f65925e5fc69cbe840826c825",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662138632354,
+            "created": 1662138632354,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_239c2a22e5bb42b2b385dc7f6de45dea",
+            "parentId": "wrk_0dc67f188b114348b93bf63ba8cb4f0b",
+            "modified": 1662138632349,
+            "created": 1662138632349,
+            "fileName": "TESTE-U4CRYPTO",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        }
+    ]
+}

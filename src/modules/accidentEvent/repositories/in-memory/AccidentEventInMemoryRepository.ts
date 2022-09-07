@@ -6,6 +6,12 @@ import { IAccidentEventRepository } from "../IAccidentEventRepository";
 export class AccidentEventInMemoryRepository implements IAccidentEventRepository {
     accidentsEvent: AccidentEvent[] = [];
 
+    async findAll(): Promise<AccidentEvent[]> {
+        const accidents = this.accidentsEvent.map(accidentsEvent => accidentsEvent);
+
+        return accidents;
+    }
+
     async save(data: ICreateAccidentEventRequestDTO): Promise<AccidentEvent> {
         const accidentEvent = {
             ...data,

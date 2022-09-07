@@ -1,4 +1,5 @@
 import * as Boom from "@hapi/boom";
+import { ThirdPerson } from "../../../../entities/ThirdPerson";
 import { IClientRepository } from "../../../client/repositories/IClientRepository";
 import { IThirdPersonRepository } from "../../../thirdPerson/repositories/IThirdPersonRepository";
 import { IVehicleRepository } from "../../../vehicle/repositories/IVehicleRepository";
@@ -14,6 +15,7 @@ export class CreateAccidentEventService {
     ) { }
 
     async execute(data: ICreateAccidentEventRequestDTO) {
+        let thirdPersons: ThirdPerson[] = [];
         const client = await this.clientRepository.findByCPF(data.client.cpf);
 
         if (!client) {
@@ -26,32 +28,41 @@ export class CreateAccidentEventService {
             throw Boom.badRequest("Vehicle not found.");
         }
 
-        const getThirdPersonExists = await this.thirdPersonRepository.findMany(data.thirdPerson);
+        const getThirdPersonExists = await this.thirdPersonRepository.findManyExists(data.thirdPerson);
 
-        const thirdPersonsFormated = getThirdPersonExists.map(third => {
-            return {
-                name: third.name,
-                phone: third.phone,
-                cpf: third.cpf,
-            }
-        });
+        console.log(getThirdPersonExists.length === 0);
 
-        const thirdPersonRequestFormated = data.thirdPerson.map(t => {
-            return {
-                name: t.name,
-                phone: t.phone,
-                cpf: t.cpf,
-            }
-        });
+        if (getThirdPersonExists.length > 0) {
+            const thirdPersonsFormated = getThirdPersonExists.map(third => {
+                return {
+                    name: third.name,
+                    phone: third.phone,
+                    cpf: third.cpf,
+                }
+            });
 
-        const getNewThirdsPersons = thirdPersonRequestFormated.filter(({ cpf: id1 }) => !thirdPersonsFormated.some(({ cpf: id2 }) => id2 === id1));
+            const thirdPersonRequestFormated = data.thirdPerson.map(t => {
+                return {
+                    name: t.name,
+                    phone: t.phone,
+                    cpf: t.cpf,
+                }
+            });
 
-        const thirdPersonSave = await this.thirdPersonRepository.saveMany(getNewThirdsPersons);
+            const getNewThirdsPersons = thirdPersonRequestFormated.filter(({ cpf: id1 }) => !thirdPersonsFormated.some(({ cpf: id2 }) => id2 === id1));
 
-        const thirdPersons = [
-            ...thirdPersonSave,
-            ...getThirdPersonExists
-        ];
+            const thirdPersonSave = await this.thirdPersonRepository.saveMany(getNewThirdsPersons);
+
+            thirdPersons = [
+                ...thirdPersonSave,
+                ...getThirdPersonExists
+            ];
+        } else {
+            thirdPersons = data.thirdPerson
+
+        }
+
+
 
         const accidentEvent = await this.accidentEventRepository.save({
             client,

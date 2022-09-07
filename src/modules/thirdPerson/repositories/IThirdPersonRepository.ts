@@ -3,5 +3,5 @@ import { ICreateThirdPersonRequestDTO } from "../useCases/CreateThirdPerson/Crea
 
 export interface IThirdPersonRepository {
     saveMany(data: ICreateThirdPersonRequestDTO[]): Promise<ThirdPerson[]>;
-    findMany(data: ICreateThirdPersonRequestDTO[]): Promise<ThirdPerson[]>;
+    findManyExists(data: ICreateThirdPersonRequestDTO[]): Promise<ThirdPerson[]>;
 }
