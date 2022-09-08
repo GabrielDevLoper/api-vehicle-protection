@@ -14,9 +14,13 @@ export class AuthenticationService {
             throw Boom.badRequest("Credentials invalid.");
         }
 
-        const token = jwt.sign({ clientID: client.id }, process.env.SECRET_KEY, { algorithm: 'HS256' });
-
         const isValid = await bcrypt.compare(password, client.password);
+
+        if (!isValid) {
+            throw Boom.badRequest("Credentials invalid.");
+        }
+
+        const token = jwt.sign({ clientID: client.id }, process.env.SECRET_KEY, { algorithm: 'HS256' });
 
         const credentials = {
             id: client.id,

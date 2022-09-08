@@ -38,6 +38,7 @@ class ClientTypeormRepository implements IClientRepository {
         client.name = data.name;
         client.email = data.email;
         client.cpf = data.cpf;
+        client.password = data.password;
 
         const clientUpdated = await clientRepo.save(client);
 

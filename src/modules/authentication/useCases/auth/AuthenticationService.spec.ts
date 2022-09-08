@@ -25,11 +25,11 @@ describe("authentication service", () => {
             password: "123"
         }
 
-        const client = await createClientService.execute(data);
+        await createClientService.execute(data);
 
         const auth = await authenticationService.execute({
-            cpf: client.cpf,
-            password: client.password
+            cpf: data.cpf,
+            password: data.password
         });
 
         expect(auth).toHaveProperty("token");

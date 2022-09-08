@@ -50,4 +50,25 @@ describe("update client service", () => {
     });
 
 
+    it("Should be not able to update a client with cpf invalid.", async () => {
+        const data = {
+            name: "Ana Julia",
+            cpf: "97137678025",
+            email: "ana.limabarreto@hotmail.com",
+            password: "123"
+        }
+
+        const client = await createClientService.execute(data);
+
+        const clientUpdated = {
+            name: "Ana Julia",
+            cpf: "453",
+            email: "ana.limabarreto@hotmail.com",
+            password: "123"
+        }
+
+        await expect(updateClientService.execute(clientUpdated, client.id)).rejects.toThrowError(Boom.badRequest("CPF is invalid."));
+    });
+
+
 })
