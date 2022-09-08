@@ -1,15 +1,18 @@
 # Sistema para uma empresa de proteção veicular.
 
-### Para testar as rotas com os endpoints prontos, irei deixar na raiz do projeto um arquivo para ser importado no insomnia(software que usei para testar as rotas).
+### Para testar as rotas com os endpoints prontos, irei deixar na raiz do projeto um arquivo para ser importado no insomnia <a href="Insomnia.json" download>Baixe o arquivo</a> (software que usei para testar as rotas).
 
-Passos para executar este projeto, siga os passos a seguir:
+### Apenas as rotas Authenticate e a de criação de clientes esta aberta para requisições as de mais necessita do token gerado ao se autenticar na aplicação.
+
+Para executar este projeto, siga os passos a seguir:
 
 1. Execute os comando `npm i ou yarn`, para baixar as dependências da aplicação.
 2. Configure as credencias do banco e da aplicação na .env
 3. Execute os comando `npm run dev ou yarn dev`, para deixar a aplicação rodando.
 4. Execute os comando `npm run test ou yarn test`, para executar os testes.
+5. Com a configuração do swagger no projeto é possivel acessar os endpoints disponivel e o body das requisições basta acessar essa url: `http://localhost:3333/documentation`
 
-Passos para executar o projeto utilizando o docker, siga os passos a seguir:
+Para executar o projeto utilizando o docker, siga os passos a seguir:
 
 1. Configure a variavel na .env
 2. DB_HOST=postgres
@@ -24,13 +27,16 @@ Techs que foram utilizadas para o desenvolvimento desta aplicação
 4. PostgresSQL
 5. Jest
 6. hapi/boom 
+7. hapi-swagger
+8. hapi-auth-jwt2
+9. jsonwebtoken
 
-Implementar feature:
+Features+:
 
 1. Autentição dos clientes com JWT ✅
-    1. inserir nova coluna de password na tabela de clientes. ✅
-2. Todos os usuários(clientes e terceiros) precisam ter documentos associados as suas contas.
-3. Validar os campos do request ao enviar uma requisição (UTILIZAR JOI) ✅.
+2. Todos os usuários(clientes e terceiros) precisam ter documentos associados as suas contas.✅
+3. Validar os campos do request ao enviar uma requisição (UTILIZAR JOI). ✅
 4. Verificar a criação de um evento de acidente. ✅
 5. Implementado swagger para documentação da api. ✅
+6. Validar cpf ao cadastrar um novo cliente e terceiros.
 

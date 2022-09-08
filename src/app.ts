@@ -137,7 +137,23 @@ server.route({
         return h.response(accidentEvent).code(201);
     },
     options: {
-        tags: ['api']
+        tags: ['api'],
+        validate: {
+            payload: Joi.object({
+                client: {
+                    cpf: Joi.string().required()
+                },
+                vehicle: {
+                    license_plate: Joi.string().required()
+                },
+                description_accident: Joi.string().required(),
+                thirdPerson: Joi.array().items({
+                    name: Joi.string().required(),
+                    cpf: Joi.string().required(),
+                    phone: Joi.string().required()
+                })
+            })
+        },
     }
 });
 

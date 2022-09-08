@@ -12,14 +12,10 @@ let clientInMemoryRepository: ClientInMemoryRepository;
 let vehicleInMemoryRepository: VehicleInMemoryRepository;
 let thirdPersonInMemoryRepository: ThirdPersonInMemoryRepository;
 
-
 let createAccidentEventService: CreateAccidentEventService;
 let createClientService: CreateClientService;
 let createVehicleService: CreateVehicleService;
 let createThirdPersonService: CreateThirdPersonService;
-
-
-
 
 describe("create accident event service", () => {
 
@@ -28,7 +24,6 @@ describe("create accident event service", () => {
         clientInMemoryRepository = new ClientInMemoryRepository();
         vehicleInMemoryRepository = new VehicleInMemoryRepository();
         thirdPersonInMemoryRepository = new ThirdPersonInMemoryRepository();
-
 
         createThirdPersonService = new CreateThirdPersonService(thirdPersonInMemoryRepository);
         createClientService = new CreateClientService(clientInMemoryRepository);
